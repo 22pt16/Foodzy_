@@ -1,0 +1,35 @@
+# Virtual Environment
+venv/
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.db
+.DS_Store
+
+# Environment variables
+.env
+.env.*
+
+# Logs and cache
+*.log
+*.sqlite3
+
+# Python compiled files
+*.egg-info/
+*.egg
+*.manifest
+*.spec
+
+# IDE / Editor
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Node / JS / Frontend (if any in the future)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Ignore SQL backups if any
+*.sql
