@@ -33,3 +33,6 @@ yarn.lock
 
 # Ignore SQL backups if any
 *.sql
+
+#Commands for trial
+#psql -h dpg-cve4hfjtq21c7399v4mg-a.oregon-postgres.render.com -U foodzy_db_user -d foodzy_db -W
