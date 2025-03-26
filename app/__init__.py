@@ -5,7 +5,11 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(
+        __name__,
+        template_folder="../templates",  # HTML templates path
+        static_folder="../static"        # CSS, JS, and images path
+    )
     app.config.from_object('config')
 
     # Correct DB initialization

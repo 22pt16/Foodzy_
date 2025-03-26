@@ -131,17 +131,20 @@
                             </div>
                         </div>
                     </div>
+                    {% for testimonial in testimonials %}
                     <div class="testimonial-item bg-transparent border rounded p-4">
                         <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Foodzy has been my go-to restaurant for every occasion. Their attention to detail and flavor is unmatched!</p>
+                        <p>{{ testimonial.messages }}</p>
                         <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{ url_for('static', filename='assets/img/testimonial-4.jpg') }}" style="width: 50px; height: 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="{{ url_for('static', filename='assets/img/default-avatar.jpg') }}" style="width: 50px; height: 50px;">
                             <div class="ps-3">
-                                <h5 class="mb-1">Emily Davis</h5>
-                                <small>Food Blogger</small>
+                                <h5 class="mb-1">{{ testimonial.user_name }}</h5>
+                                <small>{{ testimonial.profession if testimonial.profession else 'Food Lover' }}</small>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>

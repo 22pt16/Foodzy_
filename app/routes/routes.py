@@ -1,30 +1,41 @@
-from flask import Blueprint, request, render_template, jsonify, redirect, url_for
-from app.models.models import db, Users, SampleMenu, Cart, Bill, Feedback
+from flask import Blueprint, request, render_template, jsonify
+from app.models.models import db, Users, SampleMenu, Feedback
 
+# Blueprint for main routes
 main_bp = Blueprint('main', __name__)
 
-# Home route
+# ======== ROUTES ========
+
+# 🏡 Home route - Loads testimonial.html
 @main_bp.route('/')
 def home():
-    return render_template('testimonial.html')
+    testimonials = Feedback.query.all()  # Fetch all feedbacks
+    return render_template('testimonial.html', testimonials=testimonials)
 
+# 📝 Feedback page
+@main_bp.route('/feedback_page')
+def feedback_page():
+    testimonials = Feedback.query.all()
+    return render_template('testimonial.html', testimonials=testimonials)
+
+# 🔐 Login page
 @main_bp.route('/login')
 def login_page():
     return render_template('login.html')
 
+# 📝 Signup page
 @main_bp.route('/signup')
 def signup_page():
     return render_template('signup.html')
 
+# 🍕 Menu page
 @main_bp.route('/menu_page')
 def menu_page():
     return render_template('menu.html')
 
-@main_bp.route('/feedback_page')
-def feedback_page():
-    return render_template('testimonial.html')
+# ========== API ROUTES ==========
 
-# Get all menu items
+# 📚 Get all menu items
 @main_bp.route('/menu', methods=['GET'])
 def get_menu():
     menu = SampleMenu.query.all()
@@ -40,7 +51,7 @@ def get_menu():
     ]
     return jsonify(result)
 
-# Get All Users
+# 👥 Get all users
 @main_bp.route('/users', methods=['GET'])
 def get_users():
     users = Users.query.all()
@@ -55,8 +66,7 @@ def get_users():
         })
     return jsonify(result)
 
-
-# Get user details
+# 🔍 Get a single user
 @main_bp.route('/user/<string:user_id>', methods=['GET'])
 def get_user(user_id):
     user = Users.query.get(user_id)
@@ -64,17 +74,16 @@ def get_user(user_id):
         return jsonify({"error": "User not found"}), 404
     return jsonify({"user_name": user.user_name, "email_id": user.email_id})
 
-# Add feedback
+# ✨ Add feedback
 @main_bp.route('/feedback', methods=['POST'])
 def add_feedback():
     data = request.json
     new_feedback = Feedback(
         user_name=data['user_name'],
         email_id=data['email_id'],
-        profession=data.get('profession', ''),
+        profession=data.get('profession', ''),  # Optional profession
         messages=data['messages'],
     )
     db.session.add(new_feedback)
     db.session.commit()
     return jsonify({"message": "Feedback added successfully!"})
-

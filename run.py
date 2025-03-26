@@ -1,12 +1,7 @@
-from flask import Flask
-from app.routes.routes import main_bp
+from app import create_app  # Import app factory
 
-app = Flask(
-    __name__,
-    template_folder="templates",  # HTML templates path
-    static_folder="static"        # CSS, JS, and images path
-)
-app.register_blueprint(main_bp)
+# Create the Flask app using the factory function
+app = create_app()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True)  # Run with debug mode for dev
