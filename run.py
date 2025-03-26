@@ -1,10 +1,12 @@
-from app import create_app, db
+from flask import Flask
+from app.routes.routes import main_bp
 
-app = create_app()
+app = Flask(
+    __name__,
+    template_folder="templates",  # HTML templates path
+    static_folder="static"        # CSS, JS, and images path
+)
+app.register_blueprint(main_bp)
 
-# Create tables inside app context
-with app.app_context():
-    db.create_all()
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)

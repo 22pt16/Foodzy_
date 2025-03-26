@@ -13,7 +13,7 @@ def create_app():
 
     # Import and register routes correctly
     
-    from app.routes.main import main_bp
+    from app.routes.routes import main_bp
     app.register_blueprint(main_bp)
 
     return app

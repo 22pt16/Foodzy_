@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, render_template, jsonify, redirect, url_for
 from app.models.models import db, Users, SampleMenu, Cart, Bill, Feedback
 
 main_bp = Blueprint('main', __name__)
@@ -6,7 +6,23 @@ main_bp = Blueprint('main', __name__)
 # Home route
 @main_bp.route('/')
 def home():
-    return jsonify({"message": "Welcome to Foodzy API!"})
+    return render_template('testimonial.html')
+
+@main_bp.route('/login')
+def login_page():
+    return render_template('login.html')
+
+@main_bp.route('/signup')
+def signup_page():
+    return render_template('signup.html')
+
+@main_bp.route('/menu_page')
+def menu_page():
+    return render_template('menu.html')
+
+@main_bp.route('/feedback_page')
+def feedback_page():
+    return render_template('testimonial.html')
 
 # Get all menu items
 @main_bp.route('/menu', methods=['GET'])
