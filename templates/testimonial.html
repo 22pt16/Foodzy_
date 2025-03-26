@@ -55,22 +55,22 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="{{ url_for('static', filename='templates/index.html') }}" class="nav-item nav-link">Home</a>
-                        <a href="{{ url_for('static', filename='templates/about.html') }}" class="nav-item nav-link">About</a>
-                        <a href="{{ url_for('static', filename='templates/service.html') }}" class="nav-item nav-link">Service</a>
-                        <a href="{{ url_for('static', filename='templates/menu.html') }}" class="nav-item nav-link">Menu</a>
+                        <a href="{{ url_for('main.index') }}" class="nav-item nav-link">Home</a>
+                        <a href="{{ url_for('main.about') }}" class="nav-item nav-link">About</a>
+                        <a href="{{ url_for('main.service') }}" class="nav-item nav-link">Service</a>
+                        <a href="{{ url_for('main.menu') }}" class="nav-item nav-link">Menu</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu m-0">
-                                <a href="{{ url_for('static', filename='templates/booking.html') }}" class="dropdown-item">Booking</a>
-                                <a href="{{ url_for('static', filename='templates/checkout.html') }}" class="dropdown-item">Your Orders</a>
-                                <a href="{{ url_for('static', filename='templates/team.html') }}" class="dropdown-item">Our Team</a>
-                                <a href="{{ url_for('static', filename='templates/testimonial.html') }}" class="dropdown-item active">Testimonial</a>
+                                <a href="{{ url_for('main.booking') }}" class="dropdown-item">Booking</a>
+                                <a href="{{ url_for('main.checkout') }}" class="dropdown-item">Your Orders</a>
+                                <a href="{{ url_for('main.team') }}" class="dropdown-item">Our Team</a>
+                                <a href="{{ url_for('main.feedback') }}" class="dropdown-item active">Testimonial</a>
                             </div>
                         </div>
-                        <a href="{{ url_for('static', filename='templates/contact.html') }}" class="nav-item nav-link">Contact</a>
+                        <a href="{{ url_for('main.contact') }}" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="{{ url_for('static', filename='templates/booking.html') }}" class="btn btn-primary py-2 px-4">ORDER NOW</a>
+                    <a href="{{ url_for('main.booking') }}" class="btn btn-primary py-2 px-4">ORDER NOW</a>
                 </div>
             </nav>
 
@@ -79,7 +79,7 @@
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Testimonial</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="{{ url_for('static', filename='templates/index.html') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Pages</a></li>
                             <li class="breadcrumb-item text-white active" aria-current="page">Testimonial</li>
                         </ol>
@@ -157,9 +157,9 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
-                        <a class="btn btn-link" href="{{ url_for('static', filename='templates/about.html') }}">About Us</a>
-                        <a class="btn btn-link" href="{{ url_for('static', filename='templates/contact.html') }}">Contact Us</a>
-                        <a class="btn btn-link" href="{{ url_for('static', filename='templates/booking.html') }}">Booking</a>
+                        <a class="btn btn-link" href="{{ url_for('main.about') }}">About Us</a>
+                        <a class="btn btn-link" href="{{ url_for('main.contact') }}">Contact Us</a>
+                        <a class="btn btn-link" href="{{ url_for('main.booking') }}">Booking</a>
                         <a class="btn btn-link" href="">Privacy Policy</a>
                         <a class="btn btn-link" href="">Terms & Condition</a>
                     </div>
@@ -198,7 +198,7 @@
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                             &copy; <a class="border-bottom" href="#">Foodzy</a>, All Right Reserved. 
 							
-							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							
 							Designed By <a class="border-bottom" href="https://htmlcodex.com">22pts</a><br><br>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
