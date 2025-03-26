@@ -15,7 +15,7 @@ class SampleMenu(db.Model):
     is_veg = db.Column(db.Boolean, nullable=False, default=False)
     description = db.Column(db.String(150), nullable=False, default='Delicious food item')
     price = db.Column(db.Float, nullable=False, default=0)
-    picture = db.Column(db.String, nullable=False, default='static/assets/img/menu-1.png')
+    picture = db.Column(db.String, nullable=False, default='assets/img/menu-1.png')
     deleted_at = db.Column(db.TIMESTAMP, nullable=True)
 
 # Users Model
@@ -57,5 +57,5 @@ class Feedback(db.Model):
     email_id = db.Column(db.String(50), primary_key=True)
     profession = db.Column(db.String(50))
     messages = db.Column(db.String(150))
-    picture = db.Column(db.String, nullable=False, default='static/assets/img/user.png')
+    picture = db.Column(db.String, nullable=False, default='assets/img/user.png')
     created_at = db.Column(db.TIMESTAMP, default=datetime.utcnow)
